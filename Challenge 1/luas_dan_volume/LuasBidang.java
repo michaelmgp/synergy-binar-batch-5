@@ -1,12 +1,14 @@
 package luas_dan_volume;
 
+import implement.PressAnyKeyImpl;
 import interfaces.PressAnyKey;
 
 import java.util.Scanner;
 
-public class LuasBidang implements PressAnyKey {
+public class LuasBidang {
 
     static Scanner scanner = new Scanner(System.in);
+    private static PressAnyKeyImpl pressAnyKey;
     public static void luasPersegiPanjang(){
         System.out.println("------------------------------------------");
         System.out.println("Anda Memilih Persegi Panjang");
@@ -26,7 +28,7 @@ public class LuasBidang implements PressAnyKey {
         System.out.println("Luas Persegi Panjang adalah " + luasPersegiPanjang);
         System.out.println("------------------------------------------");
 
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
     }
     public static void luasLingkaran(){
         System.out.println("------------------------------------------");
@@ -44,7 +46,7 @@ public class LuasBidang implements PressAnyKey {
         System.out.println("Luas Lingkaran adalah " + luasLingkaran);
         System.out.println("------------------------------------------");
 
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
     }
 
     public static void luasSegitiga(){
@@ -66,7 +68,7 @@ public class LuasBidang implements PressAnyKey {
         System.out.println("Luas Segitiga adalah " + luasSegitiga);
         System.out.println("------------------------------------------");
 
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
 
     }
     public static void luasPersegi(){
@@ -84,7 +86,7 @@ public class LuasBidang implements PressAnyKey {
         double luasPersegi =Math.pow(sisi,2);
         System.out.println("Luas Persegi Panjang adalah " + luasPersegi);
         System.out.println("------------------------------------------");
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
 
     }
 

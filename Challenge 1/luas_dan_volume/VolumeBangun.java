@@ -1,12 +1,14 @@
 package luas_dan_volume;
 
+import implement.PressAnyKeyImpl;
 import interfaces.PressAnyKey;
 
 import java.util.Scanner;
 
 public class VolumeBangun {
     static Scanner scanner = new Scanner(System.in);
-    public static void volumeKubus(){
+    private static PressAnyKeyImpl pressAnyKey;
+    public static void volumeKubus (){
         System.out.println("------------------------------------------");
         System.out.println("Anda Memilih Kubus");
         System.out.println("------------------------------------------");
@@ -21,7 +23,7 @@ public class VolumeBangun {
         double volumeKubus = Math.pow(sisi,3);
         System.out.println("Volume Kubus adalah " + volumeKubus);
         System.out.println("------------------------------------------");
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
     }
 
     public static void volumeBalok(){
@@ -43,7 +45,7 @@ public class VolumeBangun {
         System.out.println("Volume Balok adalah " + volumeBalok);
         System.out.println("------------------------------------------");
 
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
     }
 
     public static void volumeTabung(){
@@ -63,7 +65,7 @@ public class VolumeBangun {
         System.out.println("Volume Tabung adalah " + volumeTabung);
         System.out.println("------------------------------------------");
 
-        PressAnyKey.pressAnyKey();
+        pressAnyKey.pressAnyKey();
     }
 
 
