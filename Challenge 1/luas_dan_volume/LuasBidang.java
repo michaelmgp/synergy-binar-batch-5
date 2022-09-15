@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class LuasBidang {
 
     static Scanner scanner = new Scanner(System.in);
-    private static PressAnyKey pressAnyKey = new PressAnyKeyImpl();
+
     public static void luasPersegiPanjang(){
         System.out.println("------------------------------------------");
         System.out.println("Anda Memilih Persegi Panjang");
@@ -18,6 +18,8 @@ public class LuasBidang {
         System.out.println("");
         System.out.print("Masukkan Lebar : ");
         float lebar = scanner.nextFloat();
+        int sisiMiring = scanner.nextInt();
+        String sisiDepan = scanner.next();
         System.out.println("");
         System.out.print("Processing ");
         for(int i = 0; i<5 ; i++){
@@ -28,7 +30,7 @@ public class LuasBidang {
         System.out.println("Luas Persegi Panjang adalah " + luasPersegiPanjang);
         System.out.println("------------------------------------------");
 
-        pressAnyKey.pressAnyKey();
+
     }
     public static void luasLingkaran(){
         System.out.println("------------------------------------------");
@@ -46,7 +48,7 @@ public class LuasBidang {
         System.out.println("Luas Lingkaran adalah " + luasLingkaran);
         System.out.println("------------------------------------------");
 
-        pressAnyKey.pressAnyKey();
+
     }
 
     public static void luasSegitiga(){
@@ -68,7 +70,7 @@ public class LuasBidang {
         System.out.println("Luas Segitiga adalah " + luasSegitiga);
         System.out.println("------------------------------------------");
 
-        pressAnyKey.pressAnyKey();
+
 
     }
     public static void luasPersegi(){
@@ -86,7 +88,7 @@ public class LuasBidang {
         double luasPersegi =Math.pow(sisi,2);
         System.out.println("Luas Persegi Panjang adalah " + luasPersegi);
         System.out.println("------------------------------------------");
-        pressAnyKey.pressAnyKey();
+
 
     }
 

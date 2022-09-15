@@ -1,11 +1,15 @@
 package menu;
 
+import implement.PressAnyKeyImpl;
+import interfaces.PressAnyKey;
+
 import java.util.Scanner;
 
 import static luas_dan_volume.LuasBidang.*;
 
 public class MenuLuas {
     static Scanner  scanner = new Scanner(System.in);
+    private static PressAnyKey pressAnyKey = new PressAnyKeyImpl();
     public static void menuLuas(){
         System.out.println("------------------------------------------");
         System.out.println("Pilih bidang yang akan dihitung");
@@ -21,15 +25,19 @@ public class MenuLuas {
         switch (pilihan){
             case 4:
                 luasPersegiPanjang();
+                pressAnyKey.pressAnyKey();
                 break;
             case 2:
                 luasLingkaran();
+                pressAnyKey.pressAnyKey();
                 break;
             case 3:
                 luasSegitiga();
+                pressAnyKey.pressAnyKey();
                 break;
             case 1:
                 luasPersegi();
+                pressAnyKey.pressAnyKey();
                 break;
             case 0:
                 break;
