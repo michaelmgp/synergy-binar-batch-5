@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class VolumeBangun {
     static Scanner scanner = new Scanner(System.in);
-    private static PressAnyKeyImpl pressAnyKey;
+    private static PressAnyKey pressAnyKey = new PressAnyKeyImpl();
     public static void volumeKubus (){
         System.out.println("------------------------------------------");
         System.out.println("Anda Memilih Kubus");
@@ -34,7 +34,7 @@ public class VolumeBangun {
         double panjang = scanner.nextDouble();
         System.out.print("Masukkan Lebar : ");
         double lebar = scanner.nextDouble();
-        System.out.print("Masukkan Tinggi");
+        System.out.print("Masukkan Tinggi : ");
         double tinggi = scanner.nextDouble();
         System.out.print("Processing ");
         for(int i = 0; i<5 ; i++){

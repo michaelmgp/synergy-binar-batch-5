@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class LuasBidang {
 
     static Scanner scanner = new Scanner(System.in);
-    private static PressAnyKeyImpl pressAnyKey;
+    private static PressAnyKey pressAnyKey = new PressAnyKeyImpl();
     public static void luasPersegiPanjang(){
         System.out.println("------------------------------------------");
         System.out.println("Anda Memilih Persegi Panjang");
@@ -17,7 +17,7 @@ public class LuasBidang {
         double panjang = scanner.nextDouble();
         System.out.println("");
         System.out.print("Masukkan Lebar : ");
-        double lebar = scanner.nextDouble();
+        float lebar = scanner.nextFloat();
         System.out.println("");
         System.out.print("Processing ");
         for(int i = 0; i<5 ; i++){
