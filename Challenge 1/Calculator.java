@@ -8,11 +8,13 @@ import static menu.Volume.menuVolume;
 public class Calculator {
     static Scanner scanner = new Scanner(System.in);
 
+
     public static void main (String[] args){
 
         while(true){
                 menuUtama();
-                if(menuUtama()==false){
+                boolean state = menuUtama();
+                if(state==false){
                     break;
                 }
             }
@@ -36,7 +38,7 @@ public class Calculator {
         System.out.println("------------------------------------------");
         System.out.print("Pilihan anda ? " );
         int pilihan = scanner.nextInt();
-        boolean state = true;
+        boolean state = false;
         switch(pilihan){
             case 1:
                 menuLuas();

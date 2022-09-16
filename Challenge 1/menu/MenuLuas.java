@@ -37,7 +37,7 @@ public class MenuLuas {
                 break;
             case 1:
                 luasPersegi();
-                pressAnyKey.pressAnyKey();
+
                 break;
             case 0:
                 break;
