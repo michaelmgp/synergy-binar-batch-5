@@ -1,8 +1,8 @@
 Berikut Hasil Pengolahan Nilai : 
 Nilai					Frekuensi
-5					1
-6					2
-7					62
-8					42
-9					50
-10					41
+Nilai Kurang dari 6 adalah :     1
+6							2
+7							62
+8							42
+9							50
+10							41

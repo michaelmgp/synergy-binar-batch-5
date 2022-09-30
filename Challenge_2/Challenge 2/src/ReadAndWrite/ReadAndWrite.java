@@ -64,12 +64,12 @@ public abstract class ReadAndWrite extends CustomWrite {
         }else if(pilihan==2){
             writePersebaranData(data);
         }
-        return false;
+        return true;
     }
     public boolean writeFile(Map<String,String> data,Map<String,String> data2){
         writeKelompokData(data);
         writePersebaranData(data2);
-        return false;
+        return true;
     }
 
 

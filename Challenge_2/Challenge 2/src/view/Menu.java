@@ -40,6 +40,8 @@ public class Menu extends ReadAndWrite {
                     data = rumus.kelompokData(listNilaiParsed);
                     data2 = rumus.perhitunganLengkap(listNilaiParsed);
                     return writeFile(data, data2);
+                }if(pilihan == 0){
+                    return false;
                 }
                 return writeFile(data, pilihan);
             }

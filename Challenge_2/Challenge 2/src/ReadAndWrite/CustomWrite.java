@@ -22,7 +22,12 @@ public class CustomWrite {
             bwr.write("Nilai"+"\t\t\t\t\t"+"Frekuensi");
             bwr.newLine();
             for(Map.Entry<String,String> entry : listAllData.entrySet()){
-                bwr.write(entry.getKey()+"\t\t\t\t\t"+ entry.getValue());
+                if(Integer.parseInt(entry.getKey())<6){
+                    bwr.write("Nilai Kurang dari 6 adalah :     " + entry.getValue());
+                    bwr.newLine();
+                    continue;
+                }
+                bwr.write(entry.getKey()+"\t\t\t\t\t\t\t"+ entry.getValue());
                 bwr.newLine();
             }
             bwr.flush();
@@ -47,6 +52,7 @@ public class CustomWrite {
             bwr.write("Berikut Hasil Persebaran Data");
             bwr.newLine();
             for(Map.Entry<String,String> entry : listAllData.entrySet()){
+
                 bwr.write(entry.getKey()+" : "+ entry.getValue());
                 bwr.newLine();
             }
