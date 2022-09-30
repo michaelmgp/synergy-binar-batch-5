@@ -6,27 +6,33 @@ import java.util.Map;
 
 public class RumusImpl implements InterfaceRumus {
     @Override
-    public double mean(List<Integer> list) {
+    public String mean(List<Integer> list) {
         int totalNilai = 0;
         for(int i:list){
             totalNilai+=i;
         }
-        return totalNilai/list.size();
+
+        String meanNilai = Double.toString(totalNilai/list.size());
+        return meanNilai;
     }
 
     @Override
-    public double median(List<Integer> list) {
+    public String median (List<Integer> list) {
         int len = list.size();
+        double medianNilai = 0.0;
         Collections.sort(list);
-        if (len % 2 != 0)
-            return (double)list.get(len/2);
-
-        return (double) (list.get((len-1)/2)+list.get(len/2))/2.0;
+        if (len % 2 != 0){
+            medianNilai=(double)list.get(len/2);
+            return Double.toString(medianNilai);
+        }
+        medianNilai = (double) (list.get((len-1)/2)+list.get(len/2))/2.0;
+        String stringNilaiMedian =  Double.toString(medianNilai);
+        return stringNilaiMedian;
 
     }
 
     @Override
-    public int modus(List<Integer> list) {
+    public String modus(List<Integer> list) {
         int maxValue = 0, maxCount = 0, i,j;
         int n = list.size();
         for (i = 0; i < n; ++i) {
@@ -41,13 +47,15 @@ public class RumusImpl implements InterfaceRumus {
                 maxValue = list.get(i);
             }
         }
-        return maxValue;
+
+        return Integer.toString(maxValue);
     }
 
 
     @Override
-    public Map<Integer, Integer> kelompokData(List<Integer> list) {
+    public Map<String,String> kelompokData(List<Integer> list) {
         Map<Integer, Integer> frequencyMap = new HashMap<>();
+        Map<String, String> newFrequencyMap= new HashMap<>();
         for(Integer i : list){
             Integer count = frequencyMap.get(i);
             if (count==null){
@@ -55,6 +63,9 @@ public class RumusImpl implements InterfaceRumus {
             }
             frequencyMap.put(i,count+1);
         }
-        return frequencyMap;
+        for(Map.Entry<Integer,Integer> entry : frequencyMap.entrySet()){
+            newFrequencyMap.put(entry.getKey().toString(),entry.getValue().toString());
+        }
+        return newFrequencyMap;
     }
 }

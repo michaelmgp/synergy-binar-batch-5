@@ -1,0 +1,6 @@
+Berikut Hasil Pengolahan Nilai : 
+
+Berikut Hasil Persebaran Data
+Mean : 8.0
+Modus : 7
+Median : 8.0

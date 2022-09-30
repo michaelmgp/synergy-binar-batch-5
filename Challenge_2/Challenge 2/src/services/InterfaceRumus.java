@@ -2,10 +2,11 @@ package services;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public interface InterfaceRumus {
-    public double mean(List<Integer> list);
-    public double median(List<Integer> list);
-    public int modus(List<Integer> list);
-    public Map<Integer,Integer> kelompokData(List<Integer> list);
+    public String mean(List<Integer> list);
+    public String median(List<Integer> list);
+    public String modus(List<Integer> list);
+    public Map<String, String> kelompokData(List<Integer> list);
 }
