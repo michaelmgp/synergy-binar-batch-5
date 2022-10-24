@@ -51,7 +51,7 @@ public class Menu extends ReadAndWrite {
             }
 
         }catch (IOException | IllegalArgumentException e){
-            System.out.println("Terjadi Errror " +e);
+            System.out.println("Terjadi Errror pada Input " +e);
             e.printStackTrace();
         }
 

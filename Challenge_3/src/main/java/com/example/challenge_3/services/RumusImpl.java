@@ -1,54 +1,37 @@
 package com.example.challenge_3.services;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class RumusImpl implements RumusInterface{
     @Override
     public String mean(List<Integer> list) {
-        int totalNilai = 0;
-        for(int i:list){
-            totalNilai+=i;
-        }
 
-        String meanNilai = Double.toString(totalNilai/list.size());
+        Integer sum = list.stream().collect(Collectors.summingInt(Integer::intValue));
+        double mean = ((double)sum/ list.size());
+        String meanNilai = Double.toString(mean);
         return meanNilai;
     }
 
     @Override
     public String median(List<Integer> list) {
-        int len = list.size();
-        double medianNilai = 0.0;
-        Collections.sort(list);
-        if (len % 2 != 0){
-            medianNilai=(double)list.get(len/2);
-            return Double.toString(medianNilai);
-        }
-        medianNilai = (double) (list.get((len-1)/2)+list.get(len/2))/2.0;
-        String stringNilaiMedian =  Double.toString(medianNilai);
+        double median =list.stream().sorted().skip(Math.max(0, ((list.size() + 1) / 2) - 1))
+                .limit(1 + (1 + list.size()) % 2).mapToInt(Integer::intValue).average().getAsDouble();
+        String stringNilaiMedian =  Double.toString(median);
         return stringNilaiMedian;
     }
 
     @Override
     public String modus(List<Integer> list) {
-        int maxValue = 0, maxCount = 0, i,j;
-        int n = list.size();
-        for (i = 0; i < n; ++i) {
-            int count = 0;
-            for (j = 0; j < n; ++j) {
-                if (list.get(j) == list.get(i))
-                    ++count;
-            }
+         Integer mode = list.stream()
+                .collect(Collectors.groupingBy(i -> i, () -> new TreeMap<Integer, Long>(), Collectors.counting()))
+                .entrySet().stream().sorted((a, b) -> {
+                    if (!a.getValue().equals(b.getValue()))
+                        return b.getValue().compareTo(a.getValue());
+                    return a.getKey().compareTo(b.getKey());
+                }).findFirst().get().getKey();
 
-            if (count > maxCount) {
-                maxCount = count;
-                maxValue = list.get(i);
-            }
-        }
-
-        return Integer.toString(maxValue);
+        return Integer.toString(mode);
 
     }
 
