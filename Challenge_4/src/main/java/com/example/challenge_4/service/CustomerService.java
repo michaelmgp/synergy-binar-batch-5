@@ -52,16 +52,17 @@ public class CustomerService extends Response<String,String,Object> implements B
                 return error(Config.ERROR_404,new MessageResponse().getErrorNotFound(id), null);
             }
             Customer customerUpdate = customerRepository.findById(id).get();
-            if(!customer.getEmailAddress().isEmpty()){
+            if(customer.getEmailAddress()!=null){
                 customerUpdate.setEmailAddress(customer.getEmailAddress());
             }
-            if(!customer.getPassword().isEmpty()){
+            if(customer.getPassword()!=null){
                 customerUpdate.setPassword(customer.getPassword());
             }
-            if(!customer.getUsername().isEmpty()){
+            if(customer.getUsername()!=null){
                 customerUpdate.setUsername(customer.getUsername());
             }
-            return sukses(Config.SUCCESS_200, new MessageResponse().getSuccesUpdate(), customerRepository.save(customerUpdate));
+            Customer save = customerRepository.save(customerUpdate);
+            return sukses(Config.SUCCESS_200, new MessageResponse().getSuccesUpdate(), save );
         }catch (Exception e){
             return error(Config.ERROR_400,e.getMessage(), null);
         }

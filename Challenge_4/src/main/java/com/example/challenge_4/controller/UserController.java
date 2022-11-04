@@ -22,8 +22,8 @@ public class UserController implements BaseController<Customer> {
 
     @Override
     @PutMapping("/update/{id}")
-    public ResponseEntity<Map> update(Customer customer,@PathVariable("id") long id) {
-        return new ResponseEntity<Map>(customerService.mengubahUser(id,customer),HttpStatus.OK);
+    public ResponseEntity<Map> update(@RequestBody Customer customer,@PathVariable("id") long id) {
+        return new ResponseEntity<Map>(customerService.mengubahUser(id, customer),HttpStatus.OK);
     }
 
     @Override
