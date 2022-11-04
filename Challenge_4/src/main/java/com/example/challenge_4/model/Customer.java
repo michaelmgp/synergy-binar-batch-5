@@ -1,8 +1,9 @@
 package com.example.challenge_4.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,5 +17,10 @@ public class Customer {
     private String username;
     private String emailAddress;
     private String password;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "seats")
+    private List<Seat> seats;
 
 }

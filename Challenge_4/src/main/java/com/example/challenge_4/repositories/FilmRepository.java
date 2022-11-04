@@ -1,5 +1,6 @@
 package com.example.challenge_4.repositories;
 
+import com.example.challenge_4.enums.Tayang;
 import com.example.challenge_4.model.Film;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -17,5 +18,5 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
 
     Film findByName(String name);
 
-    List<Film> findAllByTayang(String tayang);
+    List<Film> findAllByTayang(Tayang tayang);
 }

@@ -10,5 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FilmDTO {
+    private String code;
     private String name;
+    private String tayang;
 }

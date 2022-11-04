@@ -1,9 +1,11 @@
 package com.example.challenge_4.service.base;
 
+import java.util.Map;
+
 public interface BaseUserService<T> {
-    void menambahkanUser(T user);
-    void mengubahUser(T user,long id);
-    void mengubahUser(long id);
+    Map menambahkanUser(T user);
+    Map mengubahUser(T user,long id);
+    Map menghapusUser(long id);
 
 
 

@@ -2,7 +2,7 @@ package com.example.challenge_4.enums;
 
 public enum Tayang {
     TAYANG ("Tayang"),
-    TIDAK_TAYANG ("Tidak Tayang");
+    SEGERA_TAYANG ("Segera Tayang");
 
     private final String displayValue;
 
