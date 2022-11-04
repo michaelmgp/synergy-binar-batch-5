@@ -30,7 +30,7 @@ public class MessageResponse {
     }
 
     public String getErrorNotFound(Object t) {
-        return  "Error With " + t +"Didn'tExist" ;
+        return  "Error File With id {" + t +"} Didn'tExist" ;
     }
 
     public String getMessage() {

@@ -12,5 +12,5 @@ public interface BaseFilmService<T>{
     Map menghapusFilm(long id);
 
     Map menampilkanSemuafilm();
-    Map menampilkanYangTayang(String tayang);
+    Map menampilkanYangTayang(T tayang);
 }

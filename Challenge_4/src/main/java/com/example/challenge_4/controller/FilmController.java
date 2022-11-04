@@ -41,4 +41,9 @@ public class FilmController implements BaseController<FilmDTO> {
     public ResponseEntity<Map> findAll() {
         return new ResponseEntity<Map>(filmService.menampilkanSemuafilm(),HttpStatus.OK);
     }
+
+    @GetMapping("/find-tayang")
+    public ResponseEntity<Map> findTayang(@RequestBody FilmDTO filmDTO){
+        return new ResponseEntity<Map>(filmService.menampilkanYangTayang(filmDTO), HttpStatus.OK);
+    }
 }

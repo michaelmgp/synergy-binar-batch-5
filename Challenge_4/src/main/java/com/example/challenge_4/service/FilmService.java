@@ -10,12 +10,8 @@ import com.example.challenge_4.utils.MessageResponse;
 import com.example.challenge_4.utils.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.sym.error;
 
 @Service
 public class FilmService extends Response<String,String,Object>implements BaseFilmService<FilmDTO> {
@@ -90,22 +86,25 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
 
     @Override
     public Map menampilkanSemuafilm() {
-        return sukses(Config.SUCCESS_200,  "Succes", filmRepository.findAll());
+        return sukses(Config.SUCCESS_200,  "Success", filmRepository.findAll());
     }
 
     @Override
-    public Map menampilkanYangTayang(String tayang) {
-        List <Film> filmTayang= new ArrayList<>();
+    public Map menampilkanYangTayang(FilmDTO film) {
+
+        String tayang = film.getTayang();
         try{
-            tayang.replaceAll("[^a-zA-Z]","");
-            if(tayang=="tayang"){
-               filmTayang = filmRepository.findAllByTayang(Tayang.TAYANG);
-            }if(tayang=="segeratayang"){
-               filmTayang = filmRepository.findAllByTayang(Tayang.SEGERA_TAYANG);
-            }else{
+            String newTayang = tayang.replaceAll("[^a-zA-Z]","").toLowerCase();
+            if(newTayang.equals("tayang")){
+              List<Film> filmTayang = filmRepository.findAllByTayang(Tayang.TAYANG);
+                return sukses(Config.SUCCESS_200, "Success",  filmTayang);
+            }else if(newTayang.equals("segeratayang")){
+               List<Film> filmSegeraTayang = filmRepository.findAllByTayang(Tayang.SEGERA_TAYANG);
+                return sukses(Config.SUCCESS_200, "Success",  filmSegeraTayang);
+            }else {
                 return error(Config.ERROR_500,"Bad Request ! Please input 'Tayang or Segera Tayang",null);
             }
-            return sukses(Config.SUCCESS_200, "Succes", (Film) filmTayang);
+
         }catch (Exception e){
             return error(Config.ERROR_400, e.getMessage(), null);
         }
