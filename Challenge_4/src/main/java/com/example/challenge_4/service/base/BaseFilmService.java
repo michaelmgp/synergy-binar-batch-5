@@ -6,11 +6,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
-public interface BaseFilmService<T>{
-    Map tambahFilm(T t);
+public interface BaseFilmService<T> extends BaseServiceResponse<T>{
     Map mengubahNamaFilm(Long id, T t);
-    Map menghapusFilm(long id);
-
-    Map menampilkanSemuafilm();
     Map menampilkanYangTayang(T tayang);
 }

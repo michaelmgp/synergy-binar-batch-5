@@ -22,7 +22,7 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
 
 
     @Override
-    public Map tambahFilm(FilmDTO film) {
+    public Map save(FilmDTO film) {
         try{
             String tayang = film.getTayang();
             if(tayang==null){
@@ -53,6 +53,11 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
     }
 
     @Override
+    public Map update(long id, FilmDTO filmDTO) {
+        return null;
+    }
+
+    @Override
     public Map mengubahNamaFilm(Long id, FilmDTO film) {
         try{
             if(film.getName()==null){
@@ -72,7 +77,7 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
 
 
     @Override
-    public Map menghapusFilm(long id) {
+    public Map delete(long id) {
         try {
             if(!filmRepository.findById(id).isPresent()){
                 return error(Config.ERROR_404,new MessageResponse().getErrorNotFound(id),null);
@@ -85,7 +90,12 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
     }
 
     @Override
-    public Map menampilkanSemuafilm() {
+    public Map getById(long id) {
+        return null;
+    }
+
+    @Override
+    public Map getAll() {
         return sukses(Config.SUCCESS_200,  "Success", filmRepository.findAll());
     }
 

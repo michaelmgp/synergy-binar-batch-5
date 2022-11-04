@@ -16,7 +16,7 @@ public class CustomerService extends Response<String,String,Object> implements B
 
 
     @Override
-    public Map menambahkanUser(Customer customer) {
+    public Map save(Customer customer) {
         if(customer.getUsername()==null){
             return error(Config.ERROR_500, new MessageResponse().getCannotNull(), null);
         }
@@ -32,7 +32,7 @@ public class CustomerService extends Response<String,String,Object> implements B
 
 
     @Override
-    public Map menghapusUser(long id) {
+    public Map delete(long id) {
         try{
             if(!customerRepository.existsById(id)){
                 return error(Config.ERROR_404, new MessageResponse().getErrorNotFound(id),null);
@@ -46,7 +46,12 @@ public class CustomerService extends Response<String,String,Object> implements B
     }
 
     @Override
-    public Map mengubahUser(long id, Customer customer) {
+    public Map getById(long id) {
+        return null;
+    }
+
+    @Override
+    public Map update(long id, Customer customer) {
         try{
             if(!customerRepository.existsById(id)){
                 return error(Config.ERROR_404,new MessageResponse().getErrorNotFound(id), null);
@@ -69,7 +74,7 @@ public class CustomerService extends Response<String,String,Object> implements B
     }
 
     @Override
-    public Map mencariSemuaUser() {
+    public Map getAll() {
         return sukses(Config.SUCCESS_200, "Success", customerRepository.findAll());
     }
 }
