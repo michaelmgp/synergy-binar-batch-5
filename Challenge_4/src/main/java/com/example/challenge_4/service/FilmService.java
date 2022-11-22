@@ -31,7 +31,7 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
                 String tayangString=tayang.replaceAll("[^a-zA-Z]"," ").toLowerCase().trim();
                 Film filmNew = new Film();
                 filmNew.setCode(film.getCode());
-                filmNew.setName(film.getName());
+                  filmNew.setName(film.getName());
                 if(tayangString.equals("tayang")){
                     filmNew.setTayang(Tayang.TAYANG);
                 }else if(tayangString.equals("segeratayang")){
@@ -108,7 +108,7 @@ public class FilmService extends Response<String,String,Object>implements BaseFi
             if(newTayang.equals("tayang")){
               List<Film> filmTayang = filmRepository.findAllByTayang(Tayang.TAYANG);
                 return sukses(Config.SUCCESS_200, "Success",  filmTayang);
-            }else if(newTayang.equals("segeratayang")){
+            }if(newTayang.equals("segeratayang")){
                List<Film> filmSegeraTayang = filmRepository.findAllByTayang(Tayang.SEGERA_TAYANG);
                 return sukses(Config.SUCCESS_200, "Success",  filmSegeraTayang);
             }else {

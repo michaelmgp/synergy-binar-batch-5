@@ -17,24 +17,24 @@ public class UserController implements BaseController<Customer> {
     @Override
     @PostMapping("/save")
     public ResponseEntity<Map> save(Customer customer) {
-        return new ResponseEntity<Map>(customerService.menambahkanUser(customer), HttpStatus.OK);
+        return new ResponseEntity<Map>(customerService.save(customer), HttpStatus.OK);
     }
 
     @Override
     @PutMapping("/update/{id}")
     public ResponseEntity<Map> update(@RequestBody Customer customer,@PathVariable("id") long id) {
-        return new ResponseEntity<Map>(customerService.mengubahUser(id, customer),HttpStatus.OK);
+        return new ResponseEntity<Map>(customerService.update(id, customer),HttpStatus.OK);
     }
 
     @Override
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Map> delete(@PathVariable("id") Long id) {
-        return new ResponseEntity<Map>(customerService.menghapusUser(id), HttpStatus.OK);
+        return new ResponseEntity<Map>(customerService.delete(id), HttpStatus.OK);
     }
 
     @Override
     @GetMapping("/find-all")
     public ResponseEntity<Map> findAll() {
-        return new ResponseEntity<Map>(customerService.mencariSemuaUser(),HttpStatus.OK);
+        return new ResponseEntity<Map>(customerService.getAll(),HttpStatus.OK);
     }
 }
