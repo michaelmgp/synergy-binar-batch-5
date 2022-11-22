@@ -1,10 +1,8 @@
 package com.example.challenge_5.repositories;
 
-
-import com.example.challenge_5.model.Movie;
-
+import com.example.challenge_5.model.Seat;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MovieRepository extends BaseRepository<Movie>{
+public interface SeatRepository extends BaseRepository<Seat>{
 }

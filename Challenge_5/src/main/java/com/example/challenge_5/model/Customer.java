@@ -9,15 +9,12 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "customers")
+@Entity
 public class Customer {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private long id;
     private String username;
     private String password;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_detail_id")
-    private CustomerDetail customerDetail;
 }

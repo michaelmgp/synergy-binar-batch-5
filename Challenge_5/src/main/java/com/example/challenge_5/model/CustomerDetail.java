@@ -3,18 +3,21 @@ package com.example.challenge_5.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "customer_details")
+@Entity
 public class CustomerDetail {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id")
     private long id;
-    @OneToOne(mappedBy = "customer_detail")
+    private String name;
+    private String phoneNumber;
+    private String email;
+    private String address;
+    @OneToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 }

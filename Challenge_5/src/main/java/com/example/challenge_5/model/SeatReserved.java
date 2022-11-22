@@ -9,9 +9,9 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "seats_reserved")
+@Entity
 public class SeatReserved {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
     @ManyToOne
@@ -20,7 +20,4 @@ public class SeatReserved {
     @ManyToOne
     @JoinColumn(name = "reservation_id")
     private Reservation reservation;
-    @ManyToOne
-    @JoinColumn(name = "screening_id")
-    private Screening screening;
 }

@@ -5,24 +5,26 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "reservations")
+@Entity
 public class Reservation {
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
-    @ManyToOne
-    @JoinColumn(name = "screening_id")
-    private Screening screening;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "screenings")
+    private Set<Screening> screenings;
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
     @ManyToOne
     @JoinColumn(name = "reservation_type_id")
     private ReservationType reservationType;
-    private boolean paid;
+    private double totalPrice;
     private boolean active;
 }

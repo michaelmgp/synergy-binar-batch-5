@@ -16,7 +16,7 @@ public class MovieService extends Response<String,String,Object> implements Base
     @Override
     public Map save(Movie movie) {
         try{
-            if(movie.getCast()==null){
+            if(movie.getActor()==null){
                 return error(Config.ERROR_400, new MessageResponse().getCannotNull(), null);
             }
             if(movie.getDescription()==null){
@@ -48,8 +48,8 @@ public class MovieService extends Response<String,String,Object> implements Base
             if(movie.getDuration_min()!=0){
                 movieUpdate.setDuration_min(movie.getDuration_min());
             }
-            if(movie.getCast()!=null){
-                movieUpdate.setCast(movie.getCast());
+            if(movie.getActor()!=null){
+                movieUpdate.setActor(movie.getActor());
             }
             if(movie.getTitle()!=null){
                 movieUpdate.setTitle(movie.getTitle());

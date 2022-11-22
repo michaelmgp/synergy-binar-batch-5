@@ -1,19 +1,22 @@
 package com.example.challenge_5.model;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "theaters")
+@Entity
 public class Theater {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
     private String name;
-    private int seats_no;
+
+    @Transient
+//   @OneToMany
+//   @JoinColumn(name = "seats")
+    private Set<Seat> seats;
 }
