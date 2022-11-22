@@ -1,8 +1,9 @@
 package com.example.challenge_4.model.securiy;
 
-import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.provider.ClientDetails;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
