@@ -1,11 +1,15 @@
 package com.example.challenge_4.service;
 
 import com.example.challenge_4.model.LoginModel;
+import com.example.challenge_4.model.dto.RegisterModel;
 import com.example.challenge_4.model.securiy.Role;
 import com.example.challenge_4.model.securiy.User;
+import com.example.challenge_4.repositories.RoleRepository;
 import com.example.challenge_4.repositories.UserRepository;
 
-import com.example.challenge_4.utils.ResponseGlobal;
+import com.example.challenge_4.utils.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -15,17 +19,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.HttpStatusCodeException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 @Service
 public class UserServiceImpl implements UserService {
     @Value("${BASEURL}")
     private String baseUrl;
-
+    @Autowired
+    private RoleRepository roleRepository;
     @Autowired
     private RestTemplateBuilder restTemplateBuilder;
 
@@ -35,6 +41,13 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder encoder;
     @Autowired
     public ResponseGlobal templateResponse;
+
+
+
+
+
+    Config config = new Config();
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Override
     public Map login(LoginModel loginModel) {
@@ -103,5 +116,28 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public Map registerManual(RegisterModel objModel) {
+        Map map = new HashMap();
+        try{
+            String [] roleNames = {"ROLE_USER", "ROLE_READ", "ROLE_WRITE"};
+                User user = new User();
+                user.setUsername(objModel.getEmail().toLowerCase());
+                user.setFullname(objModel.getFullname());
+                String password= encoder.encode(objModel.getPassword().replaceAll("\\s+", ""));
+                List<Role> roleList = roleRepository.findByNameIn(roleNames);
+                user.setRoles(roleList);
+                user.setPassword(password);
+                User userSave = userRepository.save(user);
+                return templateResponse.templateSukses(userSave);
+        }catch (Exception e){
+            logger.error("Error register= "+ e);
+            return templateResponse.templateEror(e.getMessage());
+        }
+    }
 
 }
+
+
+
+

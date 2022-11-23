@@ -1,0 +1,1 @@
+cari seat kosong = LEFT join seat dengan seatreserved INner Join Reservation where reservation.id == null and screening.id == null and theater.id = bla2
