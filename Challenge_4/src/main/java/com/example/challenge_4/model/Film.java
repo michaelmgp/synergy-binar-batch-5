@@ -24,6 +24,9 @@ public class Film {
 
     @Enumerated
     private Tayang tayang;
+
+
+
 //    @ManyToOne
 //    @JoinColumn(name = "customer_id")
 //    private Customer customer;

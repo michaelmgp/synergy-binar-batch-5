@@ -24,6 +24,11 @@ public class RolePath implements Serializable {
     @JsonIgnore
     private Role role;
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
     public Long getId() {
         return id;
     }
