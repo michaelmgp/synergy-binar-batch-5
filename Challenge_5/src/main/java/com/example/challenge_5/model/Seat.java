@@ -16,8 +16,10 @@ public class Seat {
     @Id
     private long id;
 
+    @Column(name = "baris")
     private int row;
 
+    @Column(name = "nomor")
     private int number;
 
     @ManyToOne
