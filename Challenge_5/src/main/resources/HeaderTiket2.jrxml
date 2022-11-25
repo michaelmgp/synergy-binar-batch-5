@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6a4e1946-465e-47c4-b4a8-f58de21865cd">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter1.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="idCustomer" class="java.lang.Long"/>
+	<parameter name="pathReport" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT cd.name, cd.email, cd.phone_number  FROM customer c join customer_detail cd on c.id = cd.customer_id WHERE  c.id = $P{idCustomer}]]>
+	</queryString>
+	<field name="name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="name"/>
+		<property name="com.jaspersoft.studio.field.label" value="name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer_detail"/>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer_detail"/>
+	</field>
+	<field name="phone_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="phone_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="phone_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="customer_detail"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="840" height="79" uuid="eae8b9d3-7125-416d-b1f7-580cbe4c0924"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[INVOICE PEMBAYARAN TIKET BIOSKOP]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="48" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="4" width="160" height="38" uuid="3f138460-8cf6-4385-aa62-ae4b0f90e398"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Nama Pelanggan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="9" width="470" height="30" uuid="e7205d86-68fd-4c07-a8af-5d7e4f3624ee"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":	"+$F{name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="2" width="130" height="28" uuid="7d781a02-20b4-4c39-84a6-cd5ecc53d1f8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Email Pelanggan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="33" width="130" height="28" uuid="45264cd4-9403-41a9-81a0-c4442a6b0557"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[No Telepon]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="2" width="470" height="30" uuid="66fcc38a-b4aa-4729-b98b-e9742f098296"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":	"+$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="32" width="470" height="30" uuid="ff2b34a3-0bbd-4b5f-a2e1-af7bc7403835"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[":	"+$F{phone_number}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="285" splitType="Stretch">
+			<subreport>
+				<reportElement x="-20" y="0" width="840" height="285" uuid="9c0f3849-73ff-4b33-b9cc-f98f4be828fe"/>
+				<subreportParameter name="idCustomer">
+					<subreportParameterExpression><![CDATA[$P{idCustomer}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{pathReport}+"DetailTiket.jrxml"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
