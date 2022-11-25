@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d00d564b-3d33-4984-8d9a-e23da8acf3cd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Challenge_3/out/artifacts/Challenge_3_jar/Challenge_3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Challenge_3/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challenge 2/src/ReadAndWrite/CustomWrite.java" beforeDir="false" afterPath="$PROJECT_DIR$/Challenge 2/src/ReadAndWrite/CustomWrite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challenge 2/src/ReadAndWrite/ReadAndWrite.java" beforeDir="false" afterPath="$PROJECT_DIR$/Challenge 2/src/ReadAndWrite/ReadAndWrite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Challenge 2/src/view/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Challenge 2/src/view/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatihanSpringTest/src/main/java/com/binar5/latihanspringtest/model/Barang.java" beforeDir="false" afterPath="$PROJECT_DIR$/LatihanSpringTest/src/main/java/com/binar5/latihanspringtest/model/Barang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatihanSpringTest/src/main/java/com/binar5/latihanspringtest/service/BarangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/LatihanSpringTest/src/main/java/com/binar5/latihanspringtest/service/BarangService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatihanSpringTest/src/test/java/com/binar5/latihanspringtest/LatihanSpringTestApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/LatihanSpringTest/src/test/java/com/binar5/latihanspringtest/LatihanSpringTestApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LatihanSpringTest/src/test/java/com/binar5/latihanspringtest/service/BarangServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/LatihanSpringTest/src/test/java/com/binar5/latihanspringtest/service/BarangServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FwVC1qoNOTaAh5YSIq8VXsOp43" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Developing/synergy-binar-batch-5/Challenge_2"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d00d564b-3d33-4984-8d9a-e23da8acf3cd" name="Changes" comment="" />
+      <created>1665403002068</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665403002068</updated>
+      <workItem from="1665403003049" duration="1124000" />
+      <workItem from="1665662962605" duration="767000" />
+      <workItem from="1665663767444" duration="12000" />
+      <workItem from="1665663840016" duration="3926000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
