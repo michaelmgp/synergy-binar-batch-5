@@ -23,12 +23,6 @@ public class RolePath implements Serializable {
     @ManyToOne(targetEntity = Role.class, cascade = CascadeType.ALL)
     @JsonIgnore
     private Role role;
-
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
     public Long getId() {
         return id;
     }

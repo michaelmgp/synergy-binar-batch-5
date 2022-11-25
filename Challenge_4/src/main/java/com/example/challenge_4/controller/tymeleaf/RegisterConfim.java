@@ -16,7 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
-@RequestMapping("/user-register/web/")
+@RequestMapping("/user-register/web")
 public class RegisterConfim {
 
     @Autowired
@@ -24,14 +24,14 @@ public class RegisterConfim {
 
     Config config = new Config();
 
-    @GetMapping(value = { "/index/{tokenotp}"})
+    @GetMapping("/index/{tokenotp}")
     public String index(Model model, @PathVariable String  tokenotp) {
         User user = userRepo.findOneByOTP(tokenotp);
         if (null == user) {
             System.out.println("user null: tidak ditemukan");
             model.addAttribute("erordesc", "User not found for code "+tokenotp);
             model.addAttribute("title", "");
-            return "register";
+            return "page";
         }
         String today =  convertDateToString(new Date());
 
@@ -39,13 +39,13 @@ public class RegisterConfim {
         if(Long.parseLong(today) > Long.parseLong(dateToken)){
             model.addAttribute("erordesc", "Your token is expired. Please Get token again.");
             model.addAttribute("title", "");
-            return "register";
+            return "page";
         }
         user.setEnabled(true);
         userRepo.save(user);
         model.addAttribute("title", "Congratulations, "+user.getUsername()+", you have successfully registered.");
         model.addAttribute("erordesc", "");
-        return "register";
+        return "page";
     }
 
     @GetMapping(value = "/user1")
