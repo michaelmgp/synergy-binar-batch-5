@@ -1,4 +1,4 @@
-package com.example.challenge_5.service;
+package com.example.challenge_5.service.interfaces;
 import java.util.List;
 import java.util.Map;
 

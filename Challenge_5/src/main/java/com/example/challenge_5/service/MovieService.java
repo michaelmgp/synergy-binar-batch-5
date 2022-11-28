@@ -1,6 +1,7 @@
 package com.example.challenge_5.service;
 import com.example.challenge_5.model.Movie;
 import com.example.challenge_5.repositories.MovieRepository;
+import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
 import com.example.challenge_5.utils.MessageResponse;
 import com.example.challenge_5.utils.Response;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class MovieService extends Response<String,String,Object> implements BaseService<Movie>{
+public class MovieService extends Response<String,String,Object> implements BaseService<Movie> {
     @Autowired
     private MovieRepository movieRepository;
 

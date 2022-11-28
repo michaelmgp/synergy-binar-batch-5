@@ -2,6 +2,7 @@ package com.example.challenge_5.service;
 
 import com.example.challenge_5.model.CustomerDetail;
 import com.example.challenge_5.repositories.CustomerDetailRepository;
+import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
 import com.example.challenge_5.utils.MessageResponse;
 import com.example.challenge_5.utils.Response;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class CustomerDetailService extends Response<String, String, Object> implements BaseService<CustomerDetail>{
+public class CustomerDetailService extends Response<String, String, Object> implements BaseService<CustomerDetail> {
     @Autowired
     private CustomerDetailRepository customerDetailRepository;
 

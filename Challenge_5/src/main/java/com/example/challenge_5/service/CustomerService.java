@@ -1,6 +1,7 @@
 package com.example.challenge_5.service;
 import com.example.challenge_5.model.Customer;
 import com.example.challenge_5.repositories.CustomerRepository;
+import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
 import com.example.challenge_5.utils.MessageResponse;
 import com.example.challenge_5.utils.Response;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class CustomerService extends Response<String, String, Object > implements BaseService<Customer>{
+public class CustomerService extends Response<String, String, Object > implements BaseService<Customer> {
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -83,4 +84,6 @@ public class CustomerService extends Response<String, String, Object > implement
             return error(Config.ERROR_500, e.getMessage(), null);
         }
     }
+
+//    public
 }

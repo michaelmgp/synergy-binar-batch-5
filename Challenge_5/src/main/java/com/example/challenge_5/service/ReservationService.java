@@ -2,6 +2,7 @@ package com.example.challenge_5.service;
 import com.example.challenge_5.model.*;
 import com.example.challenge_5.model.dto.ReservationDTO;
 import com.example.challenge_5.repositories.*;
+import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
 import com.example.challenge_5.utils.MessageResponse;
 import com.example.challenge_5.utils.Response;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class ReservationService extends Response<String, String, Object > implements BaseService<Reservation>{
+public class ReservationService extends Response<String, String, Object > implements BaseService<Reservation> {
     @Autowired
     private ReservationRepository reservationRepository;
     @Autowired

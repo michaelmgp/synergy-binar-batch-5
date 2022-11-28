@@ -1,6 +1,7 @@
 package com.example.challenge_5.service;
 import com.example.challenge_5.model.Seat;
 import com.example.challenge_5.repositories.SeatRepository;
+import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
 import com.example.challenge_5.utils.MessageResponse;
 import com.example.challenge_5.utils.Response;

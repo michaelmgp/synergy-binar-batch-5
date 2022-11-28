@@ -1,15 +1,14 @@
 package com.example.challenge_5.model;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
-import lombok.Data;
+
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -27,6 +26,8 @@ public class Screening {
     private LocalDate screeningDate;
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime screeningStart;
+
+//    private boolean active;
 //    @JsonIgnore
 //    @ManyToOne
 //    @JoinColumn(name = "reservation_id", insertable = false, updatable = false)
@@ -46,6 +47,15 @@ public class Screening {
 //
 //    public void setReservation(Reservation reservation) {
 //        this.reservation = reservation;
+//    }
+
+
+//    public boolean isActive() {
+//        return active;
+//    }
+//
+//    public void setActive(boolean active) {
+//        this.active = active;
 //    }
 
     public long getId() {
