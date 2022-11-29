@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/fortget-password")
+@RequestMapping("/forget-password")
 public class ForgetPasswordController {
     @Autowired
     private UserRepository userRepository;
