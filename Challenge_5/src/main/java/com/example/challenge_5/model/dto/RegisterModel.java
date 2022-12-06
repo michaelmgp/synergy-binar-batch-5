@@ -15,4 +15,6 @@ public class RegisterModel {
 
     public String fullname;
 
+    public String role;
+
 }

@@ -48,7 +48,7 @@ public class ForgetPasswordController {
         String message = "Thanks, please check your email";
 
         if (StringUtils.isEmpty(user.getEmail())) return templateCRUD.templateEror("No email provided");
-        User found = userRepository.findOneByUsername(user.getEmail());
+        User found = userRepository.findOneByEmail(user.getEmail());
         if (found == null) return templateCRUD.notFound("Email not found"); //throw new BadRequest("Email not found");
 
         String template = emailTemplate.getResetPassword();
@@ -68,17 +68,17 @@ public class ForgetPasswordController {
             found.setOtp(otp);
             found.setOtpExpiredDate(expirationDate);
             template = template.replaceAll("\\{\\{PASS_TOKEN}}", otp);
-            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername1() == null ? "" +
+            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername() == null ? "" +
                     "@UserName"
                     :
-                    "@" + found.getUsername1()));
+                    "@" + found.getUsername()));
 
             userRepository.save(found);
         } else {
-            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername1() == null ? "" +
+            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername() == null ? "" +
                     "@UserName"
                     :
-                    "@" + found.getUsername1()));
+                    "@" + found.getUsername()));
             template = template.replaceAll("\\{\\{PASS_TOKEN}}", found.getOtp());
         }
         emailSender.sendAsync(found.getUsername(), "Chute - Forget Password", template);

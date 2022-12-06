@@ -21,13 +21,12 @@ public class User implements UserDetails, Serializable {
     private Long id;
 
     @Column(length = 100,unique=true)
-    private String username;
+    private String email;
 
     @Column(length = 100,unique=true)
-    private String username1;
+    private String username;
 
-    @Column(length = 100, nullable = true)
-    private String fullname;
+
 
     @JsonIgnore
     private String password;
@@ -101,13 +100,12 @@ public class User implements UserDetails, Serializable {
         this.password = password;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmail(String username) {
+        this.email = username;
     }
 
-    @Override
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
     @Override
@@ -146,20 +144,12 @@ public class User implements UserDetails, Serializable {
         return enabled;
     }
 
-    public String getUsername1() {
-        return username1;
+    public String getUsername() {
+        return email;
     }
 
-    public void setUsername1(String username1) {
-        this.username1 = username1;
-    }
-
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
+    public void setUsername(String username1) {
+        this.email = username1;
     }
 
     public String getVerifyToken() {

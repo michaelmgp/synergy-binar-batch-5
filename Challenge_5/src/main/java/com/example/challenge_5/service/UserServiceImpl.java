@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
         try {
             Map<String, Object> map = new HashMap<>();
 
-            User checkUser = userRepository.findOneByUsername(loginModel.getUsername());
+            User checkUser = userRepository.findOneByEmail(loginModel.getUsername());
 
             if ((checkUser != null) && (encoder.matches(loginModel.getPassword(), checkUser.getPassword()))) {
                 if (!checkUser.isEnabled()) {
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
                     });
 
             if (response.getStatusCode() == HttpStatus.OK) {
-                User user = userRepository.findOneByUsername(loginModel.getUsername());
+                User user = userRepository.findOneByEmail(loginModel.getUsername());
                 List<String> roles = new ArrayList<>();
 
                 for (Role role : user.getRoles()) {
@@ -118,9 +118,16 @@ public class UserServiceImpl implements UserService {
         Map map = new HashMap();
         try{
             String [] roleNames = {"ROLE_USER", "ROLE_READ", "ROLE_WRITE"};
+
+            if(objModel.getRole()!=null){
+                if(objModel.getRole().toLowerCase().equals("admin")){
+                    roleNames = new String[]{"ROLE_ADMIN", "ROLE_READ", "ROLE_WRITE"};
+                }else{
+                    return templateResponse.templateEror("Please Input a valid role");
+                }
+            }
             User user = new User();
             user.setUsername(objModel.getEmail().toLowerCase());
-            user.setFullname(objModel.getFullname());
             String password= encoder.encode(objModel.getPassword().replaceAll("\\s+", ""));
             List<Role> roleList = roleRepository.findByNameIn(roleNames);
             user.setRoles(roleList);

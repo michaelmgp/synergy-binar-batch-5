@@ -1,5 +1,6 @@
 package com.example.challenge_5.model;
 
+import com.example.challenge_5.model.security.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,8 @@ public class Reservation {
     @JoinColumn(name = "screenings")
     private Set<Screening> screenings;
     @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn(name = "user_id")
+    private User user;
     @ManyToOne
     @JoinColumn(name = "reservation_type_id")
     private ReservationType reservationType;

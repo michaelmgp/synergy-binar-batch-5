@@ -69,7 +69,7 @@ public class RegisterController {
         String message = "Thanks, please check your email for activation.";
 
         if (user.getEmail() == null) return responseGlobal.templateEror("No email provided");
-        User found = userRepository.findOneByUsername(user.getEmail());
+        User found = userRepository.findOneByEmail(user.getEmail());
         if (found == null) return responseGlobal.notFound("Email not found"); //throw new BadRequest("Email not found");
 
         String template = emailTemplate.getRegisterTemplate();
@@ -88,11 +88,11 @@ public class RegisterController {
 
             found.setOtp(otp);
             found.setOtpExpiredDate(expirationDate);
-            template = template.replaceAll("\\{\\{USERNAME}}", (found.getFullname() == null ? found.getUsername1() : found.getFullname()));
+            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername() == null ? found.getEmail() : found.getUsername()));
             template = template.replaceAll("\\{\\{VERIFY_TOKEN}}",  otp);
             userRepository.save(found);
         } else {
-            template = template.replaceAll("\\{\\{USERNAME}}", (found.getFullname() == null ? found.getUsername1() : found.getFullname()));
+            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername() == null ? found.getEmail() : found.getUsername()));
             template = template.replaceAll("\\{\\{VERIFY_TOKEN}}",  found.getOtp());
         }
         emailSender.sendAsync(found.getUsername(), "Register", template);
@@ -141,7 +141,7 @@ public class RegisterController {
         String message = "Thanks, please check your email for activation.";
 
         if (user.getEmail() == null) return responseGlobal.templateEror("No email provided");
-        User found = userRepository.findOneByUsername(user.getEmail());
+        User found = userRepository.findOneByEmail(user.getEmail());
         if (found == null) return responseGlobal.notFound("Email not found"); //throw new BadRequest("Email not found");
 
         String template = emailTemplate.getRegisterTemplate();
@@ -160,11 +160,11 @@ public class RegisterController {
 
             found.setOtp(otp);
             found.setOtpExpiredDate(expirationDate);
-            template = template.replaceAll("\\{\\{USERNAME}}", (found.getFullname() == null ? found.getUsername1() : found.getFullname()));
+            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername() == null ? found.getEmail() : found.getUsername()));
             template = template.replaceAll("\\{\\{VERIFY_TOKEN}}", BASEURL + "user-register/web/index/"+ otp);
             userRepository.save(found);
         } else {
-            template = template.replaceAll("\\{\\{USERNAME}}", (found.getFullname() == null ? found.getUsername1() : found.getFullname()));
+            template = template.replaceAll("\\{\\{USERNAME}}", (found.getUsername() == null ? found.getUsername() : found.getEmail()));
             template = template.replaceAll("\\{\\{VERIFY_TOKEN}}", BASEURL + "user-register/web/index/"+  found.getOtp());
         }
         emailSender.sendAsync(found.getUsername(), "Register", template);

@@ -1,23 +1,25 @@
-package com.example.challenge_5.model;
+package com.example.challenge_5.model.security;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
-public class CustomerDetail {
+@Table(name = "oauth_user_detail")
+public class UserDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private long id;
     private String name;
     private String phoneNumber;
-    private String email;
     private String address;
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }

@@ -1,5 +1,5 @@
 package com.example.challenge_5.service;
-import com.example.challenge_5.model.Customer;
+import com.example.challenge_5.model.security.User;
 import com.example.challenge_5.repositories.CustomerRepository;
 import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.Map;
 
 @Service
-public class CustomerService extends Response<String, String, Object > implements BaseService<Customer> {
+public class CustomerService extends Response<String, String, Object > implements BaseService<User> {
     @Autowired
     private CustomerRepository customerRepository;
 
     @Override
-    public Map save(Customer customer) {
+    public Map save(User customer) {
         try{
             if(customer.getPassword()==null){
                 return error(Config.ERROR_400, new MessageResponse().getCannotNull(), null);
@@ -23,7 +23,7 @@ public class CustomerService extends Response<String, String, Object > implement
             if(customer.getUsername()==null){
                 return error(Config.ERROR_400, new MessageResponse().getCannotNull(), null);
             }
-            Customer customerSave = customerRepository.save(customer);
+            User customerSave = customerRepository.save(customer);
             return sukses(Config.SUCCESS_200, new MessageResponse().getSuccesSave(), customerSave);
         }catch (Exception e){
             return error(Config.ERROR_500, e.getMessage(), null);
@@ -31,12 +31,12 @@ public class CustomerService extends Response<String, String, Object > implement
     }
 
     @Override
-    public Map update(Customer customer) {
+    public Map update(User customer) {
         try{
             if(!customerRepository.existsById(customer.getId())){
                 return error(Config.ERROR_404, new MessageResponse().getErrorNotFound(customer.getId()), null);
             }
-            Customer customerUpdate = customerRepository.findById(customer.getId()).get();
+            User customerUpdate = customerRepository.findById(customer.getId()).get();
             if(customer.getUsername()!=null){
                 customerUpdate.setUsername(customer.getUsername());
             }
@@ -78,7 +78,7 @@ public class CustomerService extends Response<String, String, Object > implement
             if(!customerRepository.existsById(id)){
                 return error(Config.ERROR_404, new MessageResponse().getErrorNotFound(id), null);
             }
-            Customer customer = customerRepository.findById(id).get();
+            User customer = customerRepository.findById(id).get();
             return sukses(Config.SUCCESS_200, new MessageResponse("Found Data").getMessage(), customer);
         }catch (Exception e){
             return error(Config.ERROR_500, e.getMessage(), null);

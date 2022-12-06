@@ -1,6 +1,7 @@
 package com.example.challenge_5.controller;
 
-import com.example.challenge_5.model.CustomerDetail;
+import com.example.challenge_5.model.security.User;
+import com.example.challenge_5.model.security.UserDetail;
 import com.example.challenge_5.service.CustomerDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,11 +13,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/customer-detail")
-public class CustomerDetailController implements BaseController<CustomerDetail> {
+public class CustomerDetailController implements BaseController<UserDetail> {
     @Autowired
     private CustomerDetailService service;
     @Override
-    public ResponseEntity<Map> save(CustomerDetail customerDetail) {
+    public ResponseEntity<Map> save(UserDetail customerDetail) {
         return new ResponseEntity<Map>(service.save(customerDetail), HttpStatus.OK);
     }
 
@@ -31,7 +32,7 @@ public class CustomerDetailController implements BaseController<CustomerDetail> 
     }
 
     @Override
-    public ResponseEntity<Map> update(CustomerDetail customerDetail) {
+    public ResponseEntity<Map> update(UserDetail customerDetail) {
         return new ResponseEntity<Map>(service.update(customerDetail), HttpStatus.OK);
     }
 

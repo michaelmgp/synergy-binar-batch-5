@@ -1,6 +1,7 @@
 package com.example.challenge_5.service;
 import com.example.challenge_5.model.*;
 import com.example.challenge_5.model.dto.ReservationDTO;
+import com.example.challenge_5.model.security.User;
 import com.example.challenge_5.repositories.*;
 import com.example.challenge_5.service.interfaces.BaseService;
 import com.example.challenge_5.utils.Config;
@@ -37,7 +38,7 @@ public class ReservationService extends Response<String, String, Object > implem
             if(reservationDTO.getReservationType()==null){
                 return sukses(Config.ERROR_400, new MessageResponse().getCannotNull(), null);
             }
-            if(reservationDTO.getCustomer()==null){
+            if(reservationDTO.getUser()==null){
                 return sukses(Config.ERROR_400, new MessageResponse().getCannotNull(), null);
             }
             if(reservationDTO.getScreeningSet()==null){
@@ -73,8 +74,8 @@ public class ReservationService extends Response<String, String, Object > implem
             reservationSave.setActive(true);
             reservationSave.setTotalPrice(totalReservationPrice);
             reservationSave.setScreenings(screeningSet);
-            Customer customer = customerRepository.findById(reservationDTO.getCustomer().getId()).get();
-            reservationSave.setCustomer(customer);
+            User customer = customerRepository.findById(reservationDTO.getUser().getId()).get();
+            reservationSave.setUser(customer);
             ReservationType reservationType = reservationTypeRepository.findById(reservationDTO.getReservationType().getId()).get();
             reservationSave.setReservationType(reservationType);
 
@@ -108,8 +109,8 @@ public class ReservationService extends Response<String, String, Object > implem
             if(reservation.getReservationType()!=null){
                 reservationUpdate.setReservationType(reservation.getReservationType());
             }
-            if(reservation.getCustomer()!=null){
-                reservationUpdate.setCustomer(reservation.getCustomer());
+            if(reservation.getUser()!=null){
+                reservationUpdate.setUser(reservation.getUser());
             }
             if(reservation.getScreenings()!=null){
                 reservationUpdate.setScreenings(reservation.getScreenings());
